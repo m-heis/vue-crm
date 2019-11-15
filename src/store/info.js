@@ -13,13 +13,26 @@ export default {
       }
     },
     actions: {
+        async updateInfo({dispatch, commit, getters}, toUpdate) {
+            try {
+                const uId = await dispatch('getUId');
+                const updateData = {...getters.info, ...toUpdate};
+                await  firebase.database().ref(`/users/${uId}/info`).update(updateData);
+                commit('setInfo', updateData)
+            }catch (e) {
+                commit('setError', e);
+                throw e
+            }
+        },
         async fetchInfo({dispatch, commit}) {
             try {
                 const uId = await dispatch('getUId');
                 const info = (await firebase.database().ref(`users/${uId}/info`).once('value')).val();
                 commit('setInfo', info)
-                // eslint-disable-next-line no-empty
-            }catch (e) {}
+            }catch (e) {
+                commit('setError', e);
+                throw e
+            }
         }
     },
     getters: {
