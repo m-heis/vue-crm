@@ -55,6 +55,12 @@ const router = new Router({
       name: 'record',
       meta: {layout: 'main-layout', auth: true},
       component: () => import('./views/Record.vue')
+    },
+    {
+      path: '/detail/:id',
+      name: 'detail',
+      meta: {layout: 'main-layout', auth: true},
+      component: () => import('./views/Detail-record.vue')
     }
   ]
 });
