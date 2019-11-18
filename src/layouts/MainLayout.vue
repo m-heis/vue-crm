@@ -29,6 +29,7 @@
 <script>
     import Navbar from "../components/app/Navbar";
     import SideBar from "../components/app/SideBar";
+    import messages from "../utils/messages";
 
     export default {
         name: "MainLayout",
@@ -45,6 +46,16 @@
         },
         components: {
             Navbar, SideBar
+        },
+        computed: {
+            error(){
+                return this.$store.getters.error
+            }
+        },
+        watch: {
+            error(fbError){
+                this.$error(messages[fbError.code] || 'Что-то пошло не так')
+            }
         }
     }
 </script>
