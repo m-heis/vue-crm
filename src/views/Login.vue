@@ -56,6 +56,7 @@
                 Нет аккаунта?
                 <router-link to="/register">Зарегистрироваться</router-link>
             </p>
+            <h4> Если лень регистрироваться то Email: s@gmail.com Пароль: 123456 </h4>
         </div>
     </form>
 </template>
