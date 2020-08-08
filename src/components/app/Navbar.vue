@@ -17,7 +17,6 @@
                             data-target="dropdown"
                             ref="dropdown"
                     >
-                        {{name}}
                         <i class="material-icons right">arrow_drop_down</i>
                     </a>
 

@@ -26,7 +26,7 @@
         }),
         computed: {
             base() {
-                return this.$store.getters.info.bill / (this.rates['RUB'] * 6.05 / this.rates['EUR'])
+                return this.$store.getters.info.bill / (this.rates['KZT'] / this.rates['EUR'])
             }
         },
         methods: {
